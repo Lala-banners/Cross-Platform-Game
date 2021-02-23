@@ -11,22 +11,6 @@ namespace PetTime.Menu
 {
     public class MainMenu : MonoBehaviour
     {
-        #region UI Elements
-        public string LoadScene = "PetSimulator";
-        #endregion
-
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
         public void StartGame(int sceneIndex)
         {
             SceneManager.LoadScene(sceneIndex);
