@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
@@ -29,7 +29,7 @@ namespace PetTime.Menu
 
         public void StartGame(int sceneIndex)
         {
-            EditorSceneManager.LoadScene(sceneIndex);
+            SceneManager.LoadScene(sceneIndex);
         }
 
         public void QuitGame()

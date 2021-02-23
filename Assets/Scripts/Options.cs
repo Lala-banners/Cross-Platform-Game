@@ -92,12 +92,12 @@ namespace PetTime.Menu
             if (isMuted)
             {
                 //-80 is the minimum volume
-                masterAudio.SetFloat("isMutedVolume", -80);
+                masterAudio.SetFloat("isMutedVolume", -40);
             }
             else
             {
                 //20 is the maximum volume
-                masterAudio.SetFloat("isMutedVolume", 20);
+                masterAudio.SetFloat("isMutedVolume", 0);
             }
         }
         #endregion
