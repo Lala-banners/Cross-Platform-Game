@@ -93,9 +93,10 @@ GameObject:
   - component: {fileID: 1585635960}
   - component: {fileID: 1585635959}
   - component: {fileID: 1585635958}
+  - component: {fileID: 8355696860118425388}
   m_Layer: 0
   m_Name: Lion
-  m_TagString: Untagged
+  m_TagString: Lion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -169,6 +170,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.2234178, z: 1.5649911}
   m_Center: {x: 0, y: 0.6254534, z: 0.17759648}
+--- !u!114 &8355696860118425388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7441134056801879602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 236d8fb4684219940b79be3069dc5ae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hunger: 100
+  happiness: 100
+  fun: 100
+  manager: {fileID: 0}
 --- !u!1 &7441134056801879604
 GameObject:
   m_ObjectHideFlags: 0
