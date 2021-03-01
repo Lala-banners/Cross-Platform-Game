@@ -33,10 +33,10 @@ public class Pet : MonoBehaviour
         {
             Camera mainCam = Camera.main;
             Vector3 mousePos = Input.mousePosition;
-            Vector3 worldMousePos = mainCam.ScreenToWorldPoint(mousePos);
+            //Vector3 worldMousePos = mainCam.ScreenToWorldPoint(mousePos);
             RaycastHit hitInfo;
 
-            if(Physics.Raycast(worldMousePos, Vector2.zero, out hitInfo))
+            if(Physics.Raycast(mainCam.ScreenPointToRay(mousePos), out hitInfo))
             {
                 if(hitInfo.transform.gameObject.CompareTag("Lion"))
                 {
