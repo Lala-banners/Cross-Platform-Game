@@ -8,44 +8,44 @@ public class Pet : MonoBehaviour
     [SerializeField] private int happiness;
     [SerializeField] private int fun;
     #endregion
+
     [SerializeField] private GameManager manager;
 
     //This will be used to measure how much time has passed since game has been played
     //for updating the hunger, happiness and fun bars
     private bool serverTime;
 
+    private int clickCount;
+
     // Start is called before the first frame update
     void Start()
     {
         PlayerPrefs.SetString("then", "28/02/2021 5:24"); //TESTING
         UpdateStats();
-        manager.happinessSlider.value = _happiness;
-        manager.funSlider.value = _fun;
-        manager.hungerSlider.value = _hunger;
+        manager.happinessSlider.value = Happiness;
+        manager.funSlider.value = Fun;
+        manager.hungerSlider.value = Hunger;
     }
 
-    private int clickCount;
     private void Update()
     {
-        if(Input.GetMouseButtonUp(0))
+        if(Input.GetMouseButtonDown(0))
         {
-            //print("Clicked");
             Camera mainCam = Camera.main;
             Vector3 mousePos = Input.mousePosition;
-            Vector3 worldMousPos = mainCam.ScreenToWorldPoint(mousePos);
+            Vector3 worldMousePos = mainCam.ScreenToWorldPoint(mousePos);
             RaycastHit hitInfo;
 
-            if(Physics.Raycast(worldMousPos, Vector2.zero, out hitInfo))
+            if(Physics.Raycast(worldMousePos, Vector2.zero, out hitInfo))
             {
-                //print(hit.transform.gameObject.name);
                 if(hitInfo.transform.gameObject.CompareTag("Lion"))
                 {
                     clickCount++;
                     
                     if(clickCount >= 3)
                     {
+                        UpdateHappiness(50); //Increase happiness
                         clickCount = 0; //Reset click count
-                        UpdateHappiness(15); //Increase happiness
                     }
                 }
             }
@@ -128,7 +128,7 @@ public class Pet : MonoBehaviour
 
     public void UpdateServer()
     {
-
+        //Pointless
     }
 
     /// <summary>
@@ -162,34 +162,35 @@ public class Pet : MonoBehaviour
         return now.Day + "/" + now.Month + "/" + now.Year + " " + now.Hour + ":" + now.Minute;
     }
 
-    public int _hunger
+    public int Hunger
     {
         get { return hunger; }
         set { hunger = value; }
     }
 
-    public int _happiness
+    public int Happiness
     {
         get { return happiness; }
         set { happiness = value; }
     }
 
-    public int _fun
+    public int Fun
     {
         get { return fun; }
         set { fun = value; }
     }
 
     /// <summary>
-    /// Function to update happiness
+    /// Function to update happiness.
     /// </summary>
     /// <param name="happyIndex">happiness index</param>
     public void UpdateHappiness(int happyIndex)
     {
         happiness += happyIndex;
         manager.happinessSlider.value = happiness;
+        happiness++;
 
-        if(happiness > 100)
+        if(happiness >= 100)
         {
             happiness = 100;
         }
