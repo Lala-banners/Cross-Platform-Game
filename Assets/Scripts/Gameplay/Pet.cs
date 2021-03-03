@@ -13,8 +13,9 @@ public class Pet : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private GameManager manager;
-    [SerializeField] private AudioSource happyNoise;
-    [SerializeField] private AudioSource sadNoise;
+    
+    /*[SerializeField] private AudioSource happyNoise;
+    [SerializeField] private AudioSource sadNoise;*/
 
     //This will be used to measure how much time has passed since game has been played
     //for updating the hunger, happiness and fun bars
@@ -23,9 +24,9 @@ public class Pet : MonoBehaviour
     private int clickCount;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        PlayerPrefs.SetString("then", "28/02/2021 5:24"); //TESTING
+        //PlayerPrefs.SetString("then", "28/02/2021 5:24"); //TESTING
         UpdateStats();
         manager.happinessSlider.value = Happiness;
         manager.funSlider.value = Fun;
@@ -33,7 +34,7 @@ public class Pet : MonoBehaviour
 
         if(!PlayerPrefs.HasKey("name"))
         {
-            PlayerPrefs.SetString("name", "Lion");
+            PlayerPrefs.SetString("name", "Pet");
             petName = PlayerPrefs.GetString("name");
         }
     }
@@ -51,13 +52,13 @@ public class Pet : MonoBehaviour
 
             if(Physics.Raycast(mainCam.ScreenPointToRay(mousePos), out hitInfo))
             {
-                if(hitInfo.transform.gameObject.CompareTag("Lion"))
+                if(hitInfo.transform.gameObject.CompareTag("Pet"))
                 {
                     clickCount++;
                     
                     if(clickCount >= 3)
                     {
-                        happyNoise.Play(); //Play cute noise
+                        //happyNoise.Play(); //Play cute noise
                         UpdateHappiness(5); //Increase happiness
                         clickCount = 0; //Reset click count
                         //Make pet jump when click
@@ -109,7 +110,7 @@ public class Pet : MonoBehaviour
         #endregion
 
         #region Using TimeSpan to alter hunger and happiness value - I AM GOING TO ASSUME THIS WORKS
-        TimeSpan ts = getTimeSpan();
+        TimeSpan ts = GetTimeSpan();
         hunger -= (int)(ts.TotalHours * 2); //Every hour will subtract 2 points from hunger
         if (hunger < 0)
         {
@@ -120,32 +121,25 @@ public class Pet : MonoBehaviour
         if(happiness < 0)
         {
             happiness = 0;
-            sadNoise.Play(); //Play sad noise
+            //sadNoise.Play(); //Play sad noise
         }
-        //Debug.Log(happiness.ToString());
-        //Debug.Log(hunger.ToString());
         #endregion
 
         if (!PlayerPrefs.HasKey("then"))
         {
-            PlayerPrefs.SetString("then", getStringTime());
+            PlayerPrefs.SetString("then", GetStringTime());
         }
         
         //Debug.Log(getTimeSpan().ToString()); TESTING
 
         if (serverTime)
         {
-            UpdateServer();
+            
         }
         else
         {
-            InvokeRepeating("UpdateDevice", 0f, 30f); //Every 30 sec will save the time when close game. Then when player opens again, time will be based on 30 secs before game was closed.
+            InvokeRepeating(nameof(UpdateDevice), 0f, 130f); //Every 130 sec will save the time when close game. Then when player opens again, time will be based on 130 secs before game was closed.
         }
-    }
-
-    public void UpdateServer()
-    {
-        //Pointless
     }
 
     /// <summary>
@@ -154,14 +148,14 @@ public class Pet : MonoBehaviour
     /// </summary>
     public void UpdateDevice()
     {
-        PlayerPrefs.SetString("then", getStringTime());
+        PlayerPrefs.SetString("then", GetStringTime());
     }
 
     /// <summary>
     /// Object that is the result of two time subtractions
     /// </summary>
     /// <returns></returns>
-    TimeSpan getTimeSpan()
+    TimeSpan GetTimeSpan()
     {
         if(serverTime)
         {
@@ -173,7 +167,7 @@ public class Pet : MonoBehaviour
         }
     }
 
-    private string getStringTime()
+    private string GetStringTime()
     {
         DateTime now = DateTime.Now; //Accessing current time on device
         return now.Day + "/" + now.Month + "/" + now.Year + " " + now.Hour + ":" + now.Minute;
@@ -216,6 +210,20 @@ public class Pet : MonoBehaviour
         if(happiness >= 100)
         {
             happiness = 100;
+        }
+    }
+
+    /// <summary>
+    /// Update Device Time and save all info (hunger and happiness)
+    /// </summary>
+    public void SavePetInfo()
+    {
+        if(!serverTime)
+        {
+            UpdateDevice();
+            PlayerPrefs.SetInt("hunger", Hunger);
+            PlayerPrefs.SetInt("happiness", Happiness);
+            PlayerPrefs.SetInt("fun", Fun);
         }
     }
 }

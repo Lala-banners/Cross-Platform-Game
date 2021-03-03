@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 3015402858139033683}
   m_Layer: 0
   m_Name: Penguin
-  m_TagString: Untagged
+  m_TagString: Pet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 7997535668017828738}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0.804, y: 0.2, z: -2.31}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_Children:
   - {fileID: 7997535668018319264}
   - {fileID: 7997535668018319268}
@@ -181,6 +181,8 @@ MonoBehaviour:
   hunger: 0
   happiness: 0
   fun: 0
+  petName: 
+  manager: {fileID: 0}
 --- !u!1 &7997535668017828740
 GameObject:
   m_ObjectHideFlags: 0

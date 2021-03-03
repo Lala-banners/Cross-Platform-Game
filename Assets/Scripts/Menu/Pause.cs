@@ -6,29 +6,24 @@ namespace PetTime.Menu
     {
         #region UI Elements
         public static bool isPaused;
-        public GameObject pauseMenu;
         public GameObject optionsMenu;
-        public GameObject gameMenu;
         #endregion
 
         public void Paused(GameObject panel)
         {
             isPaused = true;
             Time.timeScale = 0;
-            pauseMenu.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             panel.SetActive(true);
-            gameMenu.SetActive(false);
         }
 
         public void UnPaused()
         {
             isPaused = false;
             Time.timeScale = 1;
-            pauseMenu.SetActive(false);
+            gameObject.SetActive(false);
             optionsMenu.SetActive(false);
-            gameMenu.SetActive(true);
         }
 
         private void Start()
@@ -43,14 +38,14 @@ namespace PetTime.Menu
                 if (optionsMenu.activeSelf)
                 {
                     optionsMenu.SetActive(false);
-                    pauseMenu.SetActive(true);
+                    gameObject.SetActive(true);
                 }
                 else
                 {
                     isPaused = !isPaused;
                     if (isPaused)
                     {
-                        Paused(pauseMenu);
+                        Paused(gameObject);
                     }
                     else
                     {

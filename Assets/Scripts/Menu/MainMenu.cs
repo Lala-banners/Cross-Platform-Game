@@ -13,7 +13,7 @@ namespace PetTime.Menu
     {
         public void StartGame(int sceneIndex)
         {
-            SceneManager.LoadScene(sceneIndex);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
         }
 
         public void QuitGame()

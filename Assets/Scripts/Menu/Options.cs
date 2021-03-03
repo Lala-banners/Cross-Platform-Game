@@ -64,7 +64,7 @@ namespace PetTime.Menu
         #region Change Settings
         public void ChangeScene(int sceneIndex)
         {
-            SceneManager.LoadScene(sceneIndex);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
         }
 
         public void SetFullScreen(bool fullscreen)

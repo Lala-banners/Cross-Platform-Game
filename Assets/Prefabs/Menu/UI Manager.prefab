@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8870201021050612035}
   - component: {fileID: 8870201021050612034}
   - component: {fileID: 8870201021050612045}
-  - component: {fileID: 8870201021050612044}
   m_Layer: 0
   m_Name: UI Manager
   m_TagString: Untagged
@@ -45,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e62682f0341abf04f99b623693305f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoadScene: 0
 --- !u!114 &8870201021050612045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,17 +63,3 @@ MonoBehaviour:
   musicSlider: {fileID: 0}
   SFXSlider: {fileID: 0}
   resolution: {fileID: 0}
---- !u!114 &8870201021050612044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8870201021050612033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05783f5a69d1ac0449d020699e368931, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
-  optionsMenu: {fileID: 0}
