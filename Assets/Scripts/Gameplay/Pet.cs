@@ -7,6 +7,7 @@ public class Pet : MonoBehaviour
     [SerializeField] private int hunger;
     [SerializeField] private int happiness;
     [SerializeField] private int fun;
+    [SerializeField] private string name;
     #endregion
 
     [SerializeField] private GameManager manager;
@@ -25,10 +26,19 @@ public class Pet : MonoBehaviour
         manager.happinessSlider.value = Happiness;
         manager.funSlider.value = Fun;
         manager.hungerSlider.value = Hunger;
+
+        if(!PlayerPrefs.HasKey("name"))
+        {
+            PlayerPrefs.SetString("name", "Lion");
+            name = PlayerPrefs.GetString("name");
+        }
     }
 
     private void Update()
     {
+        //Make Pet jump when happy
+        GetComponent<Animator>().SetBool("jump", gameObject.transform.position.y > -2.9f);
+
         if(Input.GetMouseButtonDown(0))
         {
             Camera mainCam = Camera.main;
@@ -46,6 +56,8 @@ public class Pet : MonoBehaviour
                     {
                         UpdateHappiness(50); //Increase happiness
                         clickCount = 0; //Reset click count
+                        //Make pet jump when click
+                        GetComponent<Rigidbody>().AddForce(new Vector2(0, 400));
                     }
                 }
             }
@@ -178,6 +190,12 @@ public class Pet : MonoBehaviour
     {
         get { return fun; }
         set { fun = value; }
+    }
+
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
     }
 
     /// <summary>
