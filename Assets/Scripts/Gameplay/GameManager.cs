@@ -14,7 +14,16 @@ public class GameManager : MonoBehaviour
     public TMP_Text nameText;
     public Button editName;
     public Button menuButton;
+    public GameObject changeNamePanel;
+    public GameObject explore;
     #endregion
+
+    private void Start()
+    {
+        changeNamePanel.SetActive(false);
+        editName.gameObject.SetActive(false);
+        explore.SetActive(false);
+    }
 
     // Update is called once per frame
     void Update()
@@ -28,5 +37,11 @@ public class GameManager : MonoBehaviour
     public void GoToPark()
     {
         //LOAD PARK SCENE AND SEND LION PREFAB 
+    }
+
+    public void ChangeNickname()
+    {
+        changeNamePanel.SetActive(true);
+        Time.timeScale = 0;
     }
 }
