@@ -3,14 +3,18 @@ using System;
 
 public class Pet : MonoBehaviour
 {
-    #region Pet Stat Variables
+    #region Pet Stats Variables
+    [Header("Pet Stats")]
     [SerializeField] private int hunger;
     [SerializeField] private int happiness;
     [SerializeField] private int fun;
-    [SerializeField] private string name;
+    [SerializeField] private string petName;
     #endregion
 
+    [Header("Other")]
     [SerializeField] private GameManager manager;
+    [SerializeField] private AudioSource happyNoise;
+    [SerializeField] private AudioSource sadNoise;
 
     //This will be used to measure how much time has passed since game has been played
     //for updating the hunger, happiness and fun bars
@@ -30,7 +34,7 @@ public class Pet : MonoBehaviour
         if(!PlayerPrefs.HasKey("name"))
         {
             PlayerPrefs.SetString("name", "Lion");
-            name = PlayerPrefs.GetString("name");
+            petName = PlayerPrefs.GetString("name");
         }
     }
 
@@ -43,7 +47,6 @@ public class Pet : MonoBehaviour
         {
             Camera mainCam = Camera.main;
             Vector3 mousePos = Input.mousePosition;
-            //Vector3 worldMousePos = mainCam.ScreenToWorldPoint(mousePos);
             RaycastHit hitInfo;
 
             if(Physics.Raycast(mainCam.ScreenPointToRay(mousePos), out hitInfo))
@@ -54,7 +57,8 @@ public class Pet : MonoBehaviour
                     
                     if(clickCount >= 3)
                     {
-                        UpdateHappiness(50); //Increase happiness
+                        happyNoise.Play(); //Play cute noise
+                        UpdateHappiness(5); //Increase happiness
                         clickCount = 0; //Reset click count
                         //Make pet jump when click
                         GetComponent<Rigidbody>().AddForce(new Vector2(0, 400));
@@ -116,6 +120,7 @@ public class Pet : MonoBehaviour
         if(happiness < 0)
         {
             happiness = 0;
+            sadNoise.Play(); //Play sad noise
         }
         //Debug.Log(happiness.ToString());
         //Debug.Log(hunger.ToString());
@@ -194,8 +199,8 @@ public class Pet : MonoBehaviour
 
     public string Name
     {
-        get { return name; }
-        set { name = value; }
+        get { return petName; }
+        set { petName = value; }
     }
 
     /// <summary>

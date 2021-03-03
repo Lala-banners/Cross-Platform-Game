@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public Button menuButton;
     public GameObject changeNamePanel;
     public GameObject explore;
+    public GameObject nameInput;
     #endregion
 
     private void Start()
@@ -39,9 +40,16 @@ public class GameManager : MonoBehaviour
         //LOAD PARK SCENE AND SEND LION PREFAB 
     }
 
-    public void ChangeNickname()
+    public void ChangeNickname(bool b)
     {
-        changeNamePanel.SetActive(true);
-        Time.timeScale = 0;
+        changeNamePanel.SetActive(!changeNamePanel.activeInHierarchy);
+        
+        if(b)
+        {
+            pet.GetComponent<Pet>().Name = nameInput.GetComponent<InputField>().text; //Connect Name to Input field object
+            PlayerPrefs.SetString("name", pet.GetComponent<Pet>().Name); //Set the string name to the Pet name 
+        }
     }
+
+    
 }

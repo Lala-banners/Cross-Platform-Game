@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pet Name
+  m_text: Lion
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -420,7 +420,9 @@ MonoBehaviour:
   hunger: 100
   happiness: 100
   fun: 100
+  petName: 
   manager: {fileID: 0}
+  happyNoise: {fileID: 0}
 --- !u!1 &7441134056801879604
 GameObject:
   m_ObjectHideFlags: 0
