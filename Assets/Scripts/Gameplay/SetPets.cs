@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetPets : SingletonBase<SetPets>
+public class SetPets : MonoBehaviour
 {
     //Array of Pets
 
