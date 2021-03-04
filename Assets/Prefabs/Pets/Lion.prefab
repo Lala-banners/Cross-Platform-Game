@@ -100,7 +100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7441134056801786386
 Transform:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   hunger: 100
   happiness: 100
   fun: 100
-  petName: 
+  petName: Lion
   manager: {fileID: 0}
 --- !u!1 &7441134056801879604
 GameObject:

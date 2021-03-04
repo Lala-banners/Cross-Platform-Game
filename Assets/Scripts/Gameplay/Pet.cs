@@ -12,7 +12,7 @@ public class Pet : MonoBehaviour
     #endregion
 
     [Header("Other")]
-    [SerializeField] private GameManager manager;
+    public GameManager manager;
     
     /*[SerializeField] private AudioSource happyNoise;
     [SerializeField] private AudioSource sadNoise;*/

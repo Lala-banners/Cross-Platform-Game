@@ -100,7 +100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7997535668018319266
 Transform:
   m_ObjectHideFlags: 0
@@ -178,10 +178,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236d8fb4684219940b79be3069dc5ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hunger: 0
-  happiness: 0
-  fun: 0
-  petName: 
+  hunger: 100
+  happiness: 100
+  fun: 100
+  petName: Penguin
   manager: {fileID: 0}
 --- !u!1 &7997535668017828740
 GameObject:

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.UI;
 using TMPro;
 
@@ -45,11 +46,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GoToPark()
-    {
-        //LOAD PARK SCENE AND SEND LION PREFAB 
-    }
-
     public void ChangeNickname(bool b)
     {
         changeNamePanel.SetActive(!changeNamePanel.activeInHierarchy);
@@ -77,7 +73,7 @@ public class GameManager : MonoBehaviour
                 break;
             case (4):
                 pet.GetComponent<Pet>().SavePetInfo();
-                Application.Quit(); 
+                QuitGame();
                 break;
         }
 
@@ -98,5 +94,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+    public void QuitGame()
+    {
+        Debug.Log("Quitting Game");
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#endif
+        Application.Quit();
+    }
+
+
 }

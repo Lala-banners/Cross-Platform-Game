@@ -507,10 +507,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236d8fb4684219940b79be3069dc5ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hunger: 0
-  happiness: 0
-  fun: 0
-  petName: 
+  hunger: 100
+  happiness: 100
+  fun: 100
+  petName: Dog
   manager: {fileID: 0}
 --- !u!1 &2815825198115524877
 GameObject:

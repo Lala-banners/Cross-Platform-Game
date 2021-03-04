@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LoadPet : MonoBehaviour
+public class GetPets : MonoBehaviour
 {
     public GameObject[] petPrefabs;
     public Transform spawnPoint;
