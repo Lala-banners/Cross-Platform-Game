@@ -5,17 +5,13 @@ public class Pet : MonoBehaviour
 {
     #region Pet Stats Variables
     [Header("Pet Stats")]
-    [SerializeField] private int hunger;
-    [SerializeField] private int happiness;
-    [SerializeField] private int fun;
-    [SerializeField] private string petName;
+    private int hunger;
+    private int happiness;
+    private int fun;
+    private string petName;
     #endregion
 
-    [Header("Other")]
-    public GameManager manager;
-    
-    /*[SerializeField] private AudioSource happyNoise;
-    [SerializeField] private AudioSource sadNoise;*/
+    [SerializeField]private GameManager manager;
 
     //This will be used to measure how much time has passed since game has been played
     //for updating the hunger, happiness and fun bars
@@ -32,10 +28,10 @@ public class Pet : MonoBehaviour
         manager.funSlider.value = Fun;
         manager.hungerSlider.value = Hunger;
 
-        if(!PlayerPrefs.HasKey("name"))
+        if(!PlayerPrefs.HasKey("petName"))
         {
-            PlayerPrefs.SetString("name", "Pet");
-            petName = PlayerPrefs.GetString("name");
+            PlayerPrefs.SetString("petName", "Pet");
+            petName = PlayerPrefs.GetString("petName");
         }
     }
 
@@ -224,6 +220,7 @@ public class Pet : MonoBehaviour
             PlayerPrefs.SetInt("hunger", Hunger);
             PlayerPrefs.SetInt("happiness", Happiness);
             PlayerPrefs.SetInt("fun", Fun);
+            PlayerPrefs.SetString("name", Name);
         }
     }
 }

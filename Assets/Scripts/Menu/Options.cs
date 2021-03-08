@@ -49,7 +49,7 @@ namespace PetTime.Menu
             #region Quality Prefs
             if (!PlayerPrefs.HasKey("quality"))
             {
-                PlayerPrefs.SetInt("quality", 5); //This is a magic number
+                PlayerPrefs.SetInt("quality", 5); 
                 QualitySettings.SetQualityLevel(5);
             }
             else
@@ -64,7 +64,7 @@ namespace PetTime.Menu
         #region Change Settings
         public void ChangeScene(int sceneIndex)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
+            SceneManager.LoadScene(sceneIndex);
         }
 
         public void SetFullScreen(bool fullscreen)
@@ -127,6 +127,7 @@ namespace PetTime.Menu
             resolution.value = currentResolutionIndex;
             resolution.RefreshShownValue();
         }
+
         public void SetResolution(int resolutionindex)
         {
             Resolution res = resolutions[resolutionindex];

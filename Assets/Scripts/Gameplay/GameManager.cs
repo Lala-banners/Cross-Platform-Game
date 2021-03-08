@@ -5,11 +5,12 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance = null;
+
     public Slider happinessSlider;
     public Slider hungerSlider;
     public Slider funSlider;
-    public GameObject pet;
-    public GameObject[] petList;
+    public Pet pet;
 
     #region UI Elements
     [Header("Quick Menu")]
@@ -22,28 +23,36 @@ public class GameManager : MonoBehaviour
     public GameObject quitButton;
     #endregion
 
+    // Awake is called when the script instance is being loaded
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else if(instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+
+
     private void Start()
     {
         changeNamePanel.SetActive(false);
         editName.gameObject.SetActive(false);
         explore.SetActive(false);
         quitButton.SetActive(false);
-
-        CreatePet(0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        hungerSlider.value = pet.GetComponent<Pet>().Hunger;
-        happinessSlider.value = pet.GetComponent<Pet>().Happiness;
-        funSlider.value = pet.GetComponent<Pet>().Fun;
-        nameText.text = pet.GetComponent<Pet>().Name;
-
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            CreatePet(1);
-        }
+        hungerSlider.value = pet.Hunger;
+        happinessSlider.value = pet.Happiness;
+        funSlider.value = pet.Fun;
+        nameText.text = pet.Name;
     }
 
     public void ChangeNickname(bool b)
@@ -52,8 +61,8 @@ public class GameManager : MonoBehaviour
         
         if(b)
         {
-            pet.GetComponent<Pet>().Name = nameInput.GetComponent<InputField>().text; //Connect Name to Input field object
-            PlayerPrefs.SetString("name", pet.GetComponent<Pet>().Name); //Set the string name to the Pet name 
+            pet.Name = nameInput.GetComponent<InputField>().text; //Connect Name to Input field object
+            PlayerPrefs.SetString("name", pet.Name); //Set the string name to the Pet name 
         }
     }
 
@@ -72,27 +81,14 @@ public class GameManager : MonoBehaviour
             case (3):
                 break;
             case (4):
-                pet.GetComponent<Pet>().SavePetInfo();
+                pet.SavePetInfo();
                 QuitGame();
                 break;
         }
 
     }
 
-    private void CreatePet(int i)
-    {
-        if(pet)
-        {
-            Destroy(pet);
-            pet = Instantiate(petList[i], Vector3.zero, Quaternion.identity) as GameObject;
-
-        }
-
-        if(changeNamePanel.activeInHierarchy)
-        {
-            changeNamePanel.SetActive(false);
-        }
-    }
+ 
 
     public void QuitGame()
     {

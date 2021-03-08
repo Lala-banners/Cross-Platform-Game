@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7830577468082801357}
   - component: {fileID: 7830577468082801356}
-  - component: {fileID: 1343752523701341547}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -48,13 +47,6 @@ MonoBehaviour:
   happinessSlider: {fileID: 0}
   hungerSlider: {fileID: 0}
   funSlider: {fileID: 0}
-  pet: {fileID: 0}
-  petList:
-  - {fileID: 5033724728720475855, guid: 815485b741e3b5847b7547057b567086, type: 3}
-  - {fileID: 4640836659146842151, guid: b627acd12e166ab499278c2c5e2b8a5c, type: 3}
-  - {fileID: 2815825198115524875, guid: 13c09462e18ce1c45a0a6efe4e5ef6ea, type: 3}
-  - {fileID: 7441134056801879602, guid: 279d32b082e19084fa4701ad01a769b3, type: 3}
-  - {fileID: 7997535668017828738, guid: 373161188e89f8c419ea404e4090493c, type: 3}
   nameText: {fileID: 0}
   editName: {fileID: 0}
   menuButton: {fileID: 0}
@@ -62,25 +54,6 @@ MonoBehaviour:
   explore: {fileID: 0}
   nameInput: {fileID: 0}
   quitButton: {fileID: 0}
---- !u!114 &1343752523701341547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7830577468082801394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e05c3397d7ac7842b8608ba7e9688e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  petPrefabs:
-  - {fileID: 5033724728720475855, guid: 815485b741e3b5847b7547057b567086, type: 3}
-  - {fileID: 4640836659146842151, guid: b627acd12e166ab499278c2c5e2b8a5c, type: 3}
-  - {fileID: 2815825198115524875, guid: 13c09462e18ce1c45a0a6efe4e5ef6ea, type: 3}
-  - {fileID: 7441134056801879602, guid: 279d32b082e19084fa4701ad01a769b3, type: 3}
-  - {fileID: 7997535668017828738, guid: 373161188e89f8c419ea404e4090493c, type: 3}
-  spawnPoint: {fileID: 7830577469494730821}
 --- !u!1 &7830577469494730826
 GameObject:
   m_ObjectHideFlags: 0
