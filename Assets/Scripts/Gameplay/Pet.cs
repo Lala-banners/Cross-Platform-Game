@@ -9,7 +9,6 @@ public class Pet : MonoBehaviour
     private int happiness;
     private int fun;
     private string petName;
-    public Animator petAnimator;
     #endregion
 
     [SerializeField]private GameManager manager;
@@ -23,7 +22,6 @@ public class Pet : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        petAnimator = GetComponent<Animator>();
 
         //PlayerPrefs.SetString("then", "28/02/2021 5:24"); //TESTING
         UpdateStats();
