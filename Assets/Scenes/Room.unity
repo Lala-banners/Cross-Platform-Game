@@ -626,6 +626,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 896324577}
+    - target: {fileID: 4586738958346777328, guid: b627acd12e166ab499278c2c5e2b8a5c, type: 3}
+      propertyPath: petAnimator
+      value: 
+      objectReference: {fileID: 125446310}
     - target: {fileID: 4640836659146488839, guid: b627acd12e166ab499278c2c5e2b8a5c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -684,6 +688,11 @@ GameObject:
 --- !u!4 &125446309 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4640836659146488839, guid: b627acd12e166ab499278c2c5e2b8a5c, type: 3}
+  m_PrefabInstance: {fileID: 125446307}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &125446310 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2984404279710176718, guid: b627acd12e166ab499278c2c5e2b8a5c, type: 3}
   m_PrefabInstance: {fileID: 125446307}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &180433790
@@ -1980,6 +1989,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 896324577}
+    - target: {fileID: 8355696860118425388, guid: 279d32b082e19084fa4701ad01a769b3, type: 3}
+      propertyPath: petAnimator
+      value: 
+      objectReference: {fileID: 828738520}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 279d32b082e19084fa4701ad01a769b3, type: 3}
 --- !u!1 &828738518 stripped
@@ -1990,6 +2003,11 @@ GameObject:
 --- !u!4 &828738519 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7441134056801786386, guid: 279d32b082e19084fa4701ad01a769b3, type: 3}
+  m_PrefabInstance: {fileID: 828738517}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &828738520 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1585635960, guid: 279d32b082e19084fa4701ad01a769b3, type: 3}
   m_PrefabInstance: {fileID: 828738517}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &873792698
@@ -2164,7 +2182,7 @@ MonoBehaviour:
   - {fileID: 828738518}
   - {fileID: 1270312142}
   - {fileID: 125446308}
-  petIndex: 0
+  choiceIndex: 0
 --- !u!4 &935020922
 Transform:
   m_ObjectHideFlags: 0
@@ -2739,6 +2757,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 896324577}
+    - target: {fileID: 862595939232489276, guid: 13c09462e18ce1c45a0a6efe4e5ef6ea, type: 3}
+      propertyPath: petAnimator
+      value: 
+      objectReference: {fileID: 1231903859}
     - target: {fileID: 2815825198115360045, guid: 13c09462e18ce1c45a0a6efe4e5ef6ea, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2797,6 +2819,11 @@ GameObject:
 --- !u!4 &1231903858 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2815825198115360045, guid: 13c09462e18ce1c45a0a6efe4e5ef6ea, type: 3}
+  m_PrefabInstance: {fileID: 1231903856}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1231903859 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 394686574, guid: 13c09462e18ce1c45a0a6efe4e5ef6ea, type: 3}
   m_PrefabInstance: {fileID: 1231903856}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1238173329
@@ -2969,6 +2996,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 896324577}
+    - target: {fileID: -6840783527739766264, guid: 815485b741e3b5847b7547057b567086, type: 3}
+      propertyPath: petAnimator
+      value: 
+      objectReference: {fileID: 1270312144}
     - target: {fileID: 5033724728720475855, guid: 815485b741e3b5847b7547057b567086, type: 3}
       propertyPath: m_Name
       value: Cat
@@ -3027,6 +3058,11 @@ GameObject:
 --- !u!4 &1270312143 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5033724728720513775, guid: 815485b741e3b5847b7547057b567086, type: 3}
+  m_PrefabInstance: {fileID: 1270312141}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1270312144 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 945126290, guid: 815485b741e3b5847b7547057b567086, type: 3}
   m_PrefabInstance: {fileID: 1270312141}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1345704051
@@ -3499,6 +3535,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 896324577}
+    - target: {fileID: 3015402858139033683, guid: 373161188e89f8c419ea404e4090493c, type: 3}
+      propertyPath: petAnimator
+      value: 
+      objectReference: {fileID: 1468087787}
     - target: {fileID: 7997535668017828738, guid: 373161188e89f8c419ea404e4090493c, type: 3}
       propertyPath: m_Name
       value: Penguin
@@ -3561,6 +3601,11 @@ GameObject:
 --- !u!4 &1468087786 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7997535668018319266, guid: 373161188e89f8c419ea404e4090493c, type: 3}
+  m_PrefabInstance: {fileID: 1468087784}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1468087787 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1845078571, guid: 373161188e89f8c419ea404e4090493c, type: 3}
   m_PrefabInstance: {fileID: 1468087784}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1545936665
