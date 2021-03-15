@@ -31,7 +31,7 @@ public class SelectPet : MonoBehaviour
             pets[choiceIndex].SetActive(true);
 
         if(GameManager.instance != null)
-            GameManager.instance.pet = pets[choiceIndex].GetComponent<Pet>();
+            GameManager.instance.pet = pets[choiceIndex].GetComponent<MasterPet>();
     }
 
     public void NextPet() //Right

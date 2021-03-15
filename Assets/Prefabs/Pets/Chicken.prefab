@@ -341,10 +341,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236d8fb4684219940b79be3069dc5ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hunger: 100
-  happiness: 100
-  fun: 100
-  petName: Chicken
+  petAnimator: {fileID: 2984404279710176718}
+  walk: {fileID: 7400000, guid: 20195977cbc32d24abb77c02040fd8cc, type: 2}
   manager: {fileID: 0}
 --- !u!1 &4640836659146842157
 GameObject:

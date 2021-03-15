@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-public class Pet : MonoBehaviour
+public class MasterPet : MonoBehaviour
 {
     #region Pet Stats Variables
     [Header("Pet Stats")]
@@ -11,7 +11,14 @@ public class Pet : MonoBehaviour
     private string petName;
     #endregion
 
-    [SerializeField]private GameManager manager;
+    #region Animations
+    [Header("Animations")]
+    public AnimationClip walk;
+    #endregion
+
+    [Header("Other")]
+    private Vector3 screenBounds;
+    [SerializeField] private GameManager manager;
 
     //This will be used to measure how much time has passed since game has been played
     //for updating the hunger, happiness and fun bars
@@ -22,7 +29,8 @@ public class Pet : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-
+        //Set screen bounds to camera bounds width and height
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         //PlayerPrefs.SetString("then", "28/02/2021 5:24"); //TESTING
         UpdateStats();
         manager.happinessSlider.value = Happiness;
@@ -38,10 +46,12 @@ public class Pet : MonoBehaviour
 
     private void Update()
     {
+        MovePet();
+
         //Make Pet jump when happy
         GetComponent<Animator>().SetBool("jump", gameObject.transform.position.y > -2.9f);
-
-        if(Input.GetMouseButtonDown(0))
+        #region Temp Input Controls - Click to increase happiness
+        if (Input.GetMouseButtonDown(0))
         {
             Camera mainCam = Camera.main;
             Vector3 mousePos = Input.mousePosition;
@@ -64,6 +74,15 @@ public class Pet : MonoBehaviour
                 }
             }
         }
+        #endregion
+    }
+
+    public void MovePet()
+    {
+
+        #region To keep pet from walking off the world
+        
+        #endregion
     }
 
     //Use PlayerPrefs to save stats
@@ -197,7 +216,7 @@ public class Pet : MonoBehaviour
     /// <summary>
     /// Function to update happiness.
     /// </summary>
-    /// <param name="happyIndex">happiness index</param>
+    /// <param name="happyIndex">happiness index for determining how much happiness is increased.</param>
     public void UpdateHappiness(int happyIndex)
     {
         happiness += happyIndex;
@@ -207,6 +226,22 @@ public class Pet : MonoBehaviour
         if(happiness >= 100)
         {
             happiness = 100;
+        }
+    }
+
+    /// <summary>
+    /// Function to update hunger.
+    /// </summary>
+    /// <param name="hungerIndex">hunger index for determining how much hunger is increased.</param>
+    public void UpdateHunger(int hungerIndex)
+    {
+        hunger += hungerIndex;
+        manager.hungerSlider.value = hunger;
+        hunger++;
+
+        if(hunger >= 100)
+        {
+            hunger = 100;
         }
     }
 

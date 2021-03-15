@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public Slider happinessSlider;
     public Slider hungerSlider;
     public Slider funSlider;
-    public Pet pet;
+    public MasterPet pet;
 
     #region UI Elements
     [Header("Quick Menu")]
@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject explore;
     public GameObject nameInput;
     public GameObject quitButton;
+    public GameObject feed;
     #endregion
 
     // Awake is called when the script instance is being loaded
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
         editName.gameObject.SetActive(false);
         explore.SetActive(false);
         quitButton.SetActive(false);
+        feed.SetActive(false);
     }
 
     // Update is called once per frame
@@ -55,6 +57,10 @@ public class GameManager : MonoBehaviour
         nameText.text = pet.Name;
     }
 
+    /// <summary>
+    /// Function to set the nickname of your pet.
+    /// </summary>
+    /// <param name="b">Bool to check if is true then change name.</param>
     public void ChangeNickname(bool b)
     {
         changeNamePanel.SetActive(!changeNamePanel.activeInHierarchy);
@@ -85,10 +91,7 @@ public class GameManager : MonoBehaviour
                 QuitGame();
                 break;
         }
-
     }
-
- 
 
     public void QuitGame()
     {

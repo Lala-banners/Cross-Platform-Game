@@ -507,10 +507,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236d8fb4684219940b79be3069dc5ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hunger: 100
-  happiness: 100
-  fun: 100
-  petName: Dog
+  petAnimator: {fileID: 394686574}
+  walk: {fileID: 7400000, guid: 091354f451f81a44cb18ad87de34e7c7, type: 2}
   manager: {fileID: 0}
 --- !u!1 &2815825198115524877
 GameObject:
