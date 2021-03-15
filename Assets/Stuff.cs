@@ -33,23 +33,22 @@ public class Stuff
      * 
      * MVP: FUNCTIONALITY + GAMEPLAY
      * Cross platform -> mobile - PC
-     * Touch + swipe input for petting pets
+     * Touch + swipe input for petting pets CLICK INPUT DONE, swipe next
      * Drag + drop for feeding pets
      * Walk pet?? how???
      * Test on mobile - try Unity Remote 5
-     * Have music and graphics
-     * Swipe to move camera
+     * Have music and graphics DONE
      * Click on voice button to get pets attention
      * 
      * MVP: UI
-     * Main menu
-     * Pause menu
-     * Options menu
+     * Main menu DONE
+     * Pause menu DONE
+     * Options menu DONE
      * 
      * 
      * WISHLIST
      * More than 1 mini game
-     * 
+     * Open world style walking
      * 
      */
 }

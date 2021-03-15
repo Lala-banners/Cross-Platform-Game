@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Lion
   - Pet
+  - Food
   layers:
   - Default
   - TransparentFX

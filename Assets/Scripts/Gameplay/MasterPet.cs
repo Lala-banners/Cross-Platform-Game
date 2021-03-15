@@ -13,7 +13,7 @@ public class MasterPet : MonoBehaviour
     private int fun;
     private string petName;
     public float moveSpeed = 3f;
-    #endregion
+    public float jumpForce = 300f;
 
     #region Animations
     [Header("Animations")]
@@ -28,9 +28,36 @@ public class MasterPet : MonoBehaviour
     //This will be used to measure how much time has passed since game has been played
     //for updating the hunger, happiness and fun bars
     private bool serverTime;
-
     private int clickCount;
+    #endregion
 
+    #region PROPERTIES
+    public int Hunger
+    {
+        get { return hunger; }
+        set { hunger = value; }
+    }
+
+    public int Happiness
+    {
+        get { return happiness; }
+        set { happiness = value; }
+    }
+
+    public int Fun
+    {
+        get { return fun; }
+        set { fun = value; }
+    }
+
+    public string Name
+    {
+        get { return petName; }
+        set { petName = value; }
+    }
+    #endregion
+
+    #region INITIALISE
     // Start is called before the first frame update
     private void Start()
     {
@@ -50,12 +77,14 @@ public class MasterPet : MonoBehaviour
             petName = PlayerPrefs.GetString("petName");
         }
     }
+    #endregion
 
+    #region UPDATE
     private void Update()
     {
         MovePetWithinBounds();
        
-        #region Temp Input Controls - Click to increase happiness
+        #region PC Input Controls - Click to increase happiness
         if (Input.GetMouseButtonDown(0))
         {
             Camera mainCam = Camera.main;
@@ -74,14 +103,31 @@ public class MasterPet : MonoBehaviour
                         UpdateHappiness(5); //Increase happiness
                         clickCount = 0; //Reset click count
                         //Make Pet jump when happy
-                        GetComponent<Rigidbody>().AddForce(new Vector2(0, 400));
+                        rigi.AddForce(0f, jumpForce, 0f);
+                        anim.SetTrigger("jump");
+                        //GetComponent<Rigidbody>().AddForce(new Vector2(0, 400));
                     }
                 }
             }
         }
         #endregion
     }
+    #endregion
 
+    #region FEED PET
+    // OnCollisionStay is called once per frame for every collider/rigidbody that is touching rigidbody/collider
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Food"))
+        {
+            UpdateHunger(5);
+        }
+
+        //Debug.Log("Pet is being fed");
+    }
+    #endregion
+
+    #region MOVE PET
     public void MovePetWithinBounds()
     {
         #region To keep pet from walking off the world
@@ -101,16 +147,17 @@ public class MasterPet : MonoBehaviour
             anim.SetInteger("Walk", 1);
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
         }
-        else //else if pet is walking then set to walk
+        else //else if pet is moving then set to walk
         {
             anim.SetInteger("Walk", 0);
-            
         }
 
         transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
         #endregion
     }
+    #endregion
 
+    #region MANAGES PET STATS OVER TIME - HAPPINESS, HUNGER AND FUN
     //Use PlayerPrefs to save stats
     private void UpdateStats()
     {
@@ -214,31 +261,9 @@ public class MasterPet : MonoBehaviour
         DateTime now = DateTime.Now; //Accessing current time on device
         return now.Day + "/" + now.Month + "/" + now.Year + " " + now.Hour + ":" + now.Minute;
     }
+    #endregion
 
-    public int Hunger
-    {
-        get { return hunger; }
-        set { hunger = value; }
-    }
-
-    public int Happiness
-    {
-        get { return happiness; }
-        set { happiness = value; }
-    }
-
-    public int Fun
-    {
-        get { return fun; }
-        set { fun = value; }
-    }
-
-    public string Name
-    {
-        get { return petName; }
-        set { petName = value; }
-    }
-
+    #region INCREASE PET STATS METHODS
     /// <summary>
     /// Function to update happiness.
     /// </summary>
@@ -270,7 +295,9 @@ public class MasterPet : MonoBehaviour
             hunger = 100;
         }
     }
+    #endregion
 
+    #region SAVE PET INFO
     /// <summary>
     /// Update Device Time and save all info (hunger and happiness)
     /// </summary>
@@ -285,4 +312,5 @@ public class MasterPet : MonoBehaviour
             PlayerPrefs.SetString("name", Name);
         }
     }
+    #endregion
 }
