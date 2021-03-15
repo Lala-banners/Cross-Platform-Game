@@ -1,5 +1,8 @@
 using UnityEngine;
 using System;
+using UnityEditor;
+using System.Collections;
+using System.Collections.Generic;
 
 public class MasterPet : MonoBehaviour
 {
@@ -9,14 +12,16 @@ public class MasterPet : MonoBehaviour
     private int happiness;
     private int fun;
     private string petName;
+    public float moveSpeed = 3f;
     #endregion
 
     #region Animations
     [Header("Animations")]
-    public AnimationClip walk;
+    public Animator anim;
     #endregion
 
     [Header("Other")]
+    public Rigidbody rigi;
     private Vector3 screenBounds;
     [SerializeField] private GameManager manager;
 
@@ -29,6 +34,8 @@ public class MasterPet : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        rigi = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
         //Set screen bounds to camera bounds width and height
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         //PlayerPrefs.SetString("then", "28/02/2021 5:24"); //TESTING
@@ -47,9 +54,7 @@ public class MasterPet : MonoBehaviour
     private void Update()
     {
         MovePetWithinBounds();
-
-        //Make Pet jump when happy
-        GetComponent<Animator>().SetBool("jump", gameObject.transform.position.y > -2.9f);
+       
         #region Temp Input Controls - Click to increase happiness
         if (Input.GetMouseButtonDown(0))
         {
@@ -68,7 +73,7 @@ public class MasterPet : MonoBehaviour
                         //happyNoise.Play(); //Play cute noise
                         UpdateHappiness(5); //Increase happiness
                         clickCount = 0; //Reset click count
-                        //Make pet jump when click
+                        //Make Pet jump when happy
                         GetComponent<Rigidbody>().AddForce(new Vector2(0, 400));
                     }
                 }
@@ -81,9 +86,28 @@ public class MasterPet : MonoBehaviour
     {
         #region To keep pet from walking off the world
         Vector3 viewPos = transform.position;
-        viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x, screenBounds.x * -1);
-        viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y, screenBounds.y * -1);
+        viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x, screenBounds.x * -1); //Getting camera/screen bounds x
+        viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y, screenBounds.y * -1); //Getting camera/screen bounds y
         transform.position = viewPos; //Setting pet position to the positions of the screen
+        #endregion
+
+        #region Making Pet Move (Arrow keys)
+        float moveHorizontal = Input.GetAxisRaw("Horizontal");
+        float moveVertical = Input.GetAxisRaw("Vertical");
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+
+        if (movement != Vector3.zero) //If pet is standing still, make idle
+        {
+            anim.SetInteger("Walk", 1);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
+        }
+        else //else if pet is walking then set to walk
+        {
+            anim.SetInteger("Walk", 0);
+            
+        }
+
+        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
         #endregion
     }
 

@@ -178,8 +178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236d8fb4684219940b79be3069dc5ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  petAnimator: {fileID: 1845078571}
-  walk: {fileID: 7400000, guid: 95cc5be18fecb7745ad12aa05edeec30, type: 2}
+  moveSpeed: 3
+  anim: {fileID: 1845078571}
+  rigi: {fileID: 1845078570}
   manager: {fileID: 0}
 --- !u!1 &7997535668017828740
 GameObject:
