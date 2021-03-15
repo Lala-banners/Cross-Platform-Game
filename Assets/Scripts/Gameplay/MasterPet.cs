@@ -46,7 +46,7 @@ public class MasterPet : MonoBehaviour
 
     private void Update()
     {
-        MovePet();
+        MovePetWithinBounds();
 
         //Make Pet jump when happy
         GetComponent<Animator>().SetBool("jump", gameObject.transform.position.y > -2.9f);
@@ -77,11 +77,11 @@ public class MasterPet : MonoBehaviour
         #endregion
     }
 
-    public void MovePet()
+    public void MovePetWithinBounds()
     {
-
         #region To keep pet from walking off the world
-        
+        Vector3 viewPos = transform.position;
+        viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x, screenBounds.x * -1);
         #endregion
     }
 
