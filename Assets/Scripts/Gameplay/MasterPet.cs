@@ -82,6 +82,8 @@ public class MasterPet : MonoBehaviour
         #region To keep pet from walking off the world
         Vector3 viewPos = transform.position;
         viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x, screenBounds.x * -1);
+        viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y, screenBounds.y * -1);
+        transform.position = viewPos; //Setting pet position to the positions of the screen
         #endregion
     }
 
