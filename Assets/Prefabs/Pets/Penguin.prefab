@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 1845078571}
   - component: {fileID: 1845078570}
   - component: {fileID: 1845078569}
-  - component: {fileID: 3015402858139033683}
+  - component: {fileID: -500694537863293042}
   m_Layer: 0
   m_Name: Penguin
   m_TagString: Pet
@@ -166,7 +166,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.351547, y: 1.65949, z: 1}
   m_Center: {x: -0.0037398338, y: 0.8159266, z: -0}
---- !u!114 &3015402858139033683
+--- !u!114 &-500694537863293042
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,7 +179,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  jumpForce: 300
   anim: {fileID: 1845078571}
+  hearts: {fileID: 4324169803438679598, guid: 99ccc99c322d8444ba872cde5661eefd, type: 3}
   rigi: {fileID: 1845078570}
   manager: {fileID: 0}
 --- !u!1 &7997535668017828740

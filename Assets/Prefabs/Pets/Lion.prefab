@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 1585635960}
   - component: {fileID: 1585635959}
   - component: {fileID: 1585635958}
-  - component: {fileID: 8355696860118425388}
+  - component: {fileID: -7772685182309144001}
   m_Layer: 0
   m_Name: Lion
   m_TagString: Pet
@@ -170,7 +170,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.2234178, z: 1.5649911}
   m_Center: {x: 0, y: 0.6254534, z: 0.17759648}
---- !u!114 &8355696860118425388
+--- !u!114 &-7772685182309144001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,6 +185,7 @@ MonoBehaviour:
   moveSpeed: 3
   jumpForce: 300
   anim: {fileID: 1585635960}
+  hearts: {fileID: 4324169803438679598, guid: 99ccc99c322d8444ba872cde5661eefd, type: 3}
   rigi: {fileID: 1585635959}
   manager: {fileID: 0}
 --- !u!1 &7441134056801879604

@@ -1,8 +1,7 @@
 using UnityEngine;
+using System.Collections.Generic;
 using System;
 using UnityEditor;
-using System.Collections;
-using System.Collections.Generic;
 
 public class MasterPet : MonoBehaviour
 {
@@ -18,12 +17,13 @@ public class MasterPet : MonoBehaviour
     #region Animations
     [Header("Animations")]
     public Animator anim;
+    public ParticleSystem hearts;
     #endregion
 
     [Header("Other")]
+    
     public Rigidbody rigi;
     private Vector3 screenBounds;
-    [SerializeField] private GameManager manager;
 
     //This will be used to measure how much time has passed since game has been played
     //for updating the hunger, happiness and fun bars
@@ -61,28 +61,30 @@ public class MasterPet : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        hearts.Stop();
         rigi = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         //Set screen bounds to camera bounds width and height
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         //PlayerPrefs.SetString("then", "28/02/2021 5:24"); //TESTING
         UpdateStats();
-        manager.happinessSlider.value = Happiness;
-        manager.funSlider.value = Fun;
-        manager.hungerSlider.value = Hunger;
 
         if(!PlayerPrefs.HasKey("petName"))
         {
             PlayerPrefs.SetString("petName", "Pet");
             petName = PlayerPrefs.GetString("petName");
         }
+
+        
+        
+
     }
     #endregion
 
     #region UPDATE
     private void Update()
     {
-        MovePetWithinBounds();
+        //MovePetWithinBounds();
        
         #region PC Input Controls - Click to increase happiness
         if (Input.GetMouseButtonDown(0))
@@ -101,14 +103,29 @@ public class MasterPet : MonoBehaviour
                     {
                         //happyNoise.Play(); //Play cute noise
                         UpdateHappiness(5); //Increase happiness
+                        hearts.Play(); //Play hearts PS
                         clickCount = 0; //Reset click count
                         //Make Pet jump when happy
                         rigi.AddForce(0f, jumpForce, 0f);
                         anim.SetTrigger("jump");
-                        //GetComponent<Rigidbody>().AddForce(new Vector2(0, 400));
                     }
                 }
             }
+        }
+        #endregion
+
+        #region Pet Walking around area when not being clicked on
+        float distance = moveSpeed * Time.deltaTime;
+        Vector2 target = GameManager.instance.walkPoints[1].position;
+
+        if (clickCount == 0) //If not being clicked on
+        {
+            anim.SetInteger("Walk", 1);
+            transform.position = Vector2.MoveTowards(transform.position, target, distance);
+        }
+        else
+        {
+            anim.SetInteger("Walk", 0);
         }
         #endregion
     }
@@ -271,7 +288,7 @@ public class MasterPet : MonoBehaviour
     public void UpdateHappiness(int happyIndex)
     {
         happiness += happyIndex;
-        manager.happinessSlider.value = happiness;
+        GameManager.instance.happinessSlider.value = happiness;
         happiness++;
 
         if(happiness >= 100)
@@ -287,7 +304,7 @@ public class MasterPet : MonoBehaviour
     public void UpdateHunger(int hungerIndex)
     {
         hunger += hungerIndex;
-        manager.hungerSlider.value = hunger;
+        GameManager.instance.hungerSlider.value = hunger;
         hunger++;
 
         if(hunger >= 100)

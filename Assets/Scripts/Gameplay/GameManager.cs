@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Slider hungerSlider;
     public Slider funSlider;
     public MasterPet pet;
+    public Transform[] walkPoints;
 
     #region UI Elements
     [Header("Quick Menu")]
@@ -33,11 +34,10 @@ public class GameManager : MonoBehaviour
         }
         else if(instance != this)
         {
-            Destroy(gameObject);
             return;
         }
+        DontDestroyOnLoad(gameObject);
     }
-
 
     private void Start()
     {
@@ -48,13 +48,14 @@ public class GameManager : MonoBehaviour
         feed.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         hungerSlider.value = pet.Hunger;
         happinessSlider.value = pet.Happiness;
         funSlider.value = pet.Fun;
         nameText.text = pet.Name;
+
+        int r = Random.Range(0, 1);
     }
 
     /// <summary>

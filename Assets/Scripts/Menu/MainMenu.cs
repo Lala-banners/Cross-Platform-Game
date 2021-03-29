@@ -1,22 +1,20 @@
 using UnityEngine;
 using UnityEditor;
 
-namespace PetTime.Menu
+public class MainMenu : MonoBehaviour
 {
-    public class MainMenu : MonoBehaviour
+    public void StartGame(int sceneIndex)
     {
-        public void StartGame(int sceneIndex)
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
-        }
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
+    }
 
-        public void QuitGame()
-        {
-            Debug.Log("Quitting Game");
+    public void QuitGame()
+    {
+        Debug.Log("Quitting Game");
 #if UNITY_EDITOR
-            EditorApplication.ExitPlaymode();
+        EditorApplication.ExitPlaymode();
 #endif
-            Application.Quit();
-        }
+        Application.Quit();
     }
 }
+

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,12 +18,10 @@ public class SelectPet : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
             pets[i] = transform.GetChild(i).gameObject;
         
-
         //Turn off renderer
         foreach (GameObject go in pets)
             go.SetActive(false);
         
-
         //Turn on selected pet model
         if (pets[choiceIndex])
             pets[choiceIndex].SetActive(true);
@@ -33,6 +29,7 @@ public class SelectPet : MonoBehaviour
         if(GameManager.instance != null)
             GameManager.instance.pet = pets[choiceIndex].GetComponent<MasterPet>();
     }
+
 
     public void NextPet() //Right
     {

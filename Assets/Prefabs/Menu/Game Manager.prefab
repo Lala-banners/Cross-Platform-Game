@@ -48,6 +48,11 @@ MonoBehaviour:
   hungerSlider: {fileID: 0}
   funSlider: {fileID: 0}
   pet: {fileID: 0}
+  walkPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   nameText: {fileID: 0}
   editName: {fileID: 0}
   menuButton: {fileID: 0}

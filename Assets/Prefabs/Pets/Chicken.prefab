@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 2984404279710176718}
   - component: {fileID: 2984404279710176717}
   - component: {fileID: 2984404279710176716}
-  - component: {fileID: 4586738958346777328}
+  - component: {fileID: 1233398453926987610}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Pet
@@ -329,7 +329,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.762566, z: 1.1548364}
   m_Center: {x: 0, y: 0.841013, z: -0.07741818}
---- !u!114 &4586738958346777328
+--- !u!114 &1233398453926987610
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -342,7 +342,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  jumpForce: 300
   anim: {fileID: 2984404279710176718}
+  hearts: {fileID: 4324169803438679598, guid: 99ccc99c322d8444ba872cde5661eefd, type: 3}
   rigi: {fileID: 2984404279710176717}
   manager: {fileID: 0}
 --- !u!1 &4640836659146842157

@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 394686574}
   - component: {fileID: 394686573}
   - component: {fileID: 394686572}
-  - component: {fileID: 862595939232489276}
+  - component: {fileID: 8226737738486671264}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Pet
@@ -495,7 +495,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7743323, y: 1.7371409, z: 1.4393011}
   m_Center: {x: 0.008411765, y: 0.8326951, z: 0.06298345}
---- !u!114 &862595939232489276
+--- !u!114 &8226737738486671264
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -508,7 +508,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  jumpForce: 300
   anim: {fileID: 394686574}
+  hearts: {fileID: 4324169803438679598, guid: 99ccc99c322d8444ba872cde5661eefd, type: 3}
   rigi: {fileID: 394686573}
   manager: {fileID: 0}
 --- !u!1 &2815825198115524877

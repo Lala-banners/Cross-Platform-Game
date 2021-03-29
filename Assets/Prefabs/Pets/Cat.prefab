@@ -580,7 +580,7 @@ GameObject:
   - component: {fileID: 945126290}
   - component: {fileID: 945126289}
   - component: {fileID: 945126288}
-  - component: {fileID: -6840783527739766264}
+  - component: {fileID: 3507839057622042097}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Pet
@@ -656,7 +656,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9259777, y: 1.8100566, z: 1.568203}
   m_Center: {x: -0.0074021816, y: 0.84916145, z: -0.01387763}
---- !u!114 &-6840783527739766264
+--- !u!114 &3507839057622042097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -669,6 +669,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  jumpForce: 300
   anim: {fileID: 945126290}
+  hearts: {fileID: 4324169803438679598, guid: 99ccc99c322d8444ba872cde5661eefd, type: 3}
   rigi: {fileID: 945126289}
   manager: {fileID: 0}
