@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: a41d8a8ad91980548a63eca2a59dc991, type: 2}
 --- !u!1 &39553532
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,10 +622,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 935020922}
     m_Modifications:
-    - target: {fileID: 1233398453926987610, guid: b627acd12e166ab499278c2c5e2b8a5c, type: 3}
-      propertyPath: manager
-      value: 
-      objectReference: {fileID: 896324577}
     - target: {fileID: 4640836659146488839, guid: b627acd12e166ab499278c2c5e2b8a5c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1735,7 +1731,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &577049761
 MeshCollider:
@@ -2210,10 +2206,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 935020922}
     m_Modifications:
-    - target: {fileID: -7772685182309144001, guid: 279d32b082e19084fa4701ad01a769b3, type: 3}
-      propertyPath: manager
-      value: 
-      objectReference: {fileID: 896324577}
     - target: {fileID: 7441134056801786386, guid: 279d32b082e19084fa4701ad01a769b3, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3047,10 +3039,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 935020922}
     m_Modifications:
-    - target: {fileID: 394686573, guid: 13c09462e18ce1c45a0a6efe4e5ef6ea, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2815825198115360045, guid: 13c09462e18ce1c45a0a6efe4e5ef6ea, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3099,10 +3087,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dog
       objectReference: {fileID: 0}
-    - target: {fileID: 8226737738486671264, guid: 13c09462e18ce1c45a0a6efe4e5ef6ea, type: 3}
-      propertyPath: manager
-      value: 
-      objectReference: {fileID: 896324577}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13c09462e18ce1c45a0a6efe4e5ef6ea, type: 3}
 --- !u!1 &1231903857 stripped
@@ -3294,10 +3278,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 935020922}
     m_Modifications:
-    - target: {fileID: 3507839057622042097, guid: 815485b741e3b5847b7547057b567086, type: 3}
-      propertyPath: manager
-      value: 
-      objectReference: {fileID: 896324577}
     - target: {fileID: 5033724728720475855, guid: 815485b741e3b5847b7547057b567086, type: 3}
       propertyPath: m_Name
       value: Cat
@@ -3824,14 +3804,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 935020922}
     m_Modifications:
-    - target: {fileID: -500694537863293042, guid: 373161188e89f8c419ea404e4090493c, type: 3}
-      propertyPath: manager
-      value: 
-      objectReference: {fileID: 896324577}
-    - target: {fileID: 1845078570, guid: 373161188e89f8c419ea404e4090493c, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7997535668017828738, guid: 373161188e89f8c419ea404e4090493c, type: 3}
       propertyPath: m_Name
       value: Penguin

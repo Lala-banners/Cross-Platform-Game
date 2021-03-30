@@ -1,7 +1,5 @@
 using UnityEngine;
-using System.Collections.Generic;
 using System;
-using UnityEditor;
 
 public class MasterPet : MonoBehaviour
 {
@@ -61,6 +59,7 @@ public class MasterPet : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        clickCount = GameManager.instance.clickCount;
         hearts.Stop();
         rigi = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
@@ -74,18 +73,12 @@ public class MasterPet : MonoBehaviour
             PlayerPrefs.SetString("petName", "Pet");
             petName = PlayerPrefs.GetString("petName");
         }
-
-        
-        
-
     }
     #endregion
 
     #region UPDATE
     private void Update()
-    {
-        //MovePetWithinBounds();
-       
+    {  
         #region PC Input Controls - Click to increase happiness
         if (Input.GetMouseButtonDown(0))
         {
@@ -113,21 +106,6 @@ public class MasterPet : MonoBehaviour
             }
         }
         #endregion
-
-        #region Pet Walking around area when not being clicked on
-        float distance = moveSpeed * Time.deltaTime;
-        Vector2 target = GameManager.instance.walkPoints[1].position;
-
-        if (clickCount == 0) //If not being clicked on
-        {
-            anim.SetInteger("Walk", 1);
-            transform.position = Vector2.MoveTowards(transform.position, target, distance);
-        }
-        else
-        {
-            anim.SetInteger("Walk", 0);
-        }
-        #endregion
     }
     #endregion
 
@@ -141,36 +119,6 @@ public class MasterPet : MonoBehaviour
         }
 
         //Debug.Log("Pet is being fed");
-    }
-    #endregion
-
-    #region MOVE PET
-    public void MovePetWithinBounds()
-    {
-        #region To keep pet from walking off the world
-        Vector3 viewPos = transform.position;
-        viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x, screenBounds.x * -1); //Getting camera/screen bounds x
-        viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y, screenBounds.y * -1); //Getting camera/screen bounds y
-        transform.position = viewPos; //Setting pet position to the positions of the screen
-        #endregion
-
-        #region Making Pet Move (Arrow keys)
-        float moveHorizontal = Input.GetAxisRaw("Horizontal");
-        float moveVertical = Input.GetAxisRaw("Vertical");
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
-        if (movement != Vector3.zero) //If pet is standing still, make idle
-        {
-            anim.SetInteger("Walk", 1);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
-        }
-        else //else if pet is moving then set to walk
-        {
-            anim.SetInteger("Walk", 0);
-        }
-
-        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
-        #endregion
     }
     #endregion
 

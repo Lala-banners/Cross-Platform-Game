@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Slider funSlider;
     public MasterPet pet;
     public Transform[] walkPoints;
+    public int clickCount;
 
     #region UI Elements
     [Header("Quick Menu")]
@@ -25,18 +26,17 @@ public class GameManager : MonoBehaviour
     public GameObject feed;
     #endregion
 
-    // Awake is called when the script instance is being loaded
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
-        else if(instance != this)
+        else if (instance != this)
         {
+            Destroy(gameObject);
             return;
         }
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -54,8 +54,6 @@ public class GameManager : MonoBehaviour
         happinessSlider.value = pet.Happiness;
         funSlider.value = pet.Fun;
         nameText.text = pet.Name;
-
-        int r = Random.Range(0, 1);
     }
 
     /// <summary>

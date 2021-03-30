@@ -256,6 +256,8 @@ GameObject:
   - component: {fileID: 2984404279710176717}
   - component: {fileID: 2984404279710176716}
   - component: {fileID: 1233398453926987610}
+  - component: {fileID: -6166652979259090411}
+  - component: {fileID: 916560913958432124}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Pet
@@ -346,7 +348,40 @@ MonoBehaviour:
   anim: {fileID: 2984404279710176718}
   hearts: {fileID: 4324169803438679598, guid: 99ccc99c322d8444ba872cde5661eefd, type: 3}
   rigi: {fileID: 2984404279710176717}
-  manager: {fileID: 0}
+--- !u!195 &-6166652979259090411
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640836659146842151}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 0
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &916560913958432124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640836659146842151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc86901a35bff142910f400b339e6a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4640836659146842157
 GameObject:
   m_ObjectHideFlags: 0
