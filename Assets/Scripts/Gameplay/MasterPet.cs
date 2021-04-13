@@ -26,7 +26,6 @@ public class MasterPet : MonoBehaviour
     //This will be used to measure how much time has passed since game has been played
     //for updating the hunger, happiness and fun bars
     private bool serverTime;
-    private int clickCount;
     #endregion
 
     #region PROPERTIES
@@ -59,7 +58,6 @@ public class MasterPet : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        clickCount = GameManager.instance.clickCount;
         hearts.Stop();
         rigi = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
@@ -90,14 +88,14 @@ public class MasterPet : MonoBehaviour
             {
                 if(hitInfo.transform.gameObject.CompareTag("Pet"))
                 {
-                    clickCount++;
+                    GameManager.instance.clickCount++;
                     
-                    if(clickCount >= 3)
+                    if(GameManager.instance.clickCount >= 3)
                     {
                         //happyNoise.Play(); //Play cute noise
                         UpdateHappiness(5); //Increase happiness
                         hearts.Play(); //Play hearts PS
-                        clickCount = 0; //Reset click count
+                        GameManager.instance.clickCount = 0; //Reset click count
                         //Make Pet jump when happy
                         rigi.AddForce(0f, jumpForce, 0f);
                         anim.SetTrigger("jump");
