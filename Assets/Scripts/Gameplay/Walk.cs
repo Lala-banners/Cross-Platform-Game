@@ -21,30 +21,43 @@ public class Walk : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.clickCount == 0) //If not being clicked on
+        if(GameManager.instance != null)
         {
-            anim.SetInteger("Walk", 1);
-
-            if(!nav.pathPending && nav.remainingDistance < 0.5f)
+            if (GameManager.instance.clickCount == 0) //If not being clicked on
             {
-                GoToNextPoint();
+                //Walk animation
+                anim.SetInteger("Walk", 1);
+                Debug.Log("Pet is walking");
+                // Choose the next destination point when the agent gets
+                // close to the current one.
+                if (!nav.pathPending && nav.remainingDistance < 0.5f)
+                {
+                    GoToNextPoint();
+                }
+            }
+            else
+            {
+                anim.SetInteger("Walk", 0);
             }
         }
-        else
-        {
-            anim.SetInteger("Walk", 0);
-        }
+        
     }
 
     public void GoToNextPoint()
     {
-        if(GameManager.instance.walkPoints.Length == 0)
+        Debug.Log("Pet is moving to next point");
+        //If no more points to travel to, return
+        if(GameManager.instance != null)
         {
-            return;
+            if (GameManager.instance.walkPoints.Length == 0)
+            {
+                return;
+            }
+            // Choose the next point in the array as the destination,
+            // cycling to the start if necessary.
+            nav.destination = GameManager.instance.walkPoints[destination].position;
+
+            destination = (destination + 1) % GameManager.instance.walkPoints.Length;
         }
-
-        nav.destination = GameManager.instance.walkPoints[destination].position;
-
-        destination = (destination + 1) % GameManager.instance.walkPoints.Length;
     }
 }

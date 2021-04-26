@@ -62,7 +62,7 @@ public class MasterPet : MonoBehaviour
         rigi = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         //Set screen bounds to camera bounds width and height
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        //screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         //PlayerPrefs.SetString("then", "28/02/2021 5:24"); //TESTING
         UpdateStats();
 
