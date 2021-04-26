@@ -16,10 +16,10 @@ public class MasterPet : MonoBehaviour
     [Header("Animations")]
     public Animator anim;
     public ParticleSystem hearts;
+    public AudioSource petNoise;
     #endregion
 
     [Header("Other")]
-    
     public Rigidbody rigi;
     private Vector3 screenBounds;
 
@@ -61,9 +61,6 @@ public class MasterPet : MonoBehaviour
         hearts.Stop();
         rigi = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-        //Set screen bounds to camera bounds width and height
-        //screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-        //PlayerPrefs.SetString("then", "28/02/2021 5:24"); //TESTING
         UpdateStats();
 
         if(!PlayerPrefs.HasKey("petName"))
@@ -92,9 +89,10 @@ public class MasterPet : MonoBehaviour
                     
                     if(GameManager.instance.clickCount >= 3)
                     {
-                        //happyNoise.Play(); //Play cute noise
+                        //Play cute noise
+                        PetNoises(petNoise);
                         UpdateHappiness(5); //Increase happiness
-                        hearts.Play(); //Play hearts PS
+                        hearts.Play(); //Play hearts particles
                         GameManager.instance.clickCount = 0; //Reset click count
                         //Make Pet jump when happy
                         rigi.AddForce(0f, jumpForce, 0f);
@@ -106,6 +104,11 @@ public class MasterPet : MonoBehaviour
         #endregion
     }
     #endregion
+
+    public void PetNoises(AudioSource _clip)
+    {
+        _clip.Play();
+    }
 
     #region FEED PET
     // OnCollisionStay is called once per frame for every collider/rigidbody that is touching rigidbody/collider
