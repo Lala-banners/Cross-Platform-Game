@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public GameObject nameInput;
     public GameObject quitButton;
     public GameObject feed;
+    public GameObject call;
+    public AudioSource whistleAudio;
     #endregion
 
     private void Awake()
@@ -46,6 +48,7 @@ public class GameManager : MonoBehaviour
         explore.SetActive(false);
         quitButton.SetActive(false);
         feed.SetActive(false);
+        call.SetActive(false);
     }
 
     private void Update()
@@ -69,6 +72,15 @@ public class GameManager : MonoBehaviour
             pet.Name = nameInput.GetComponent<InputField>().text; //Connect Name to Input field object
             PlayerPrefs.SetString("name", pet.Name); //Set the string name to the Pet name 
         }
+    }
+
+    /// <summary>
+    /// Call pet with a whistle
+    /// </summary>
+    public void Call()
+    {
+        whistleAudio.Play();
+        //Move pet to original starting position
     }
 
     public void ButtonBehaviour(int i)
