@@ -176,7 +176,6 @@ public class MasterPet : MonoBehaviour
         if(happiness < 0)
         {
             happiness = 0;
-            //sadNoise.Play(); //Play sad noise
         }
         #endregion
 

@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Call pet with a whistle
+    /// Call pet with a whistle.
     /// </summary>
     public void Call()
     {
