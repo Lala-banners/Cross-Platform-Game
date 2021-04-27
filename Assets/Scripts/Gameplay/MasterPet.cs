@@ -16,6 +16,7 @@ public class MasterPet : MonoBehaviour
     [Header("Animations")]
     public Animator anim;
     public ParticleSystem hearts;
+    public ParticleSystem sleep;
     public AudioSource petNoise;
     #endregion
 
