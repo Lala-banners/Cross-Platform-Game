@@ -3,9 +3,9 @@ using UnityEditor;
 using UnityEngine.UI;
 using TMPro;
 
-public class GameManager : MonoBehaviour
+public class _GameManager : MonoBehaviour
 {
-    public static GameManager instance = null;
+    public static _GameManager instance = null;
 
     public Slider happinessSlider;
     public Slider hungerSlider;
@@ -20,11 +20,12 @@ public class GameManager : MonoBehaviour
     public Button editName;
     public Button menuButton;
     public GameObject changeNamePanel;
-    public GameObject explore;
     public GameObject nameInput;
+    public GameObject explore;
     public GameObject quitButton;
     public GameObject feed;
     public GameObject call;
+    public GameObject playFetch;
     public AudioSource whistleAudio;
     #endregion
 
@@ -39,16 +40,15 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-    }
 
-    private void Start()
-    {
+        //Set all icons in the quick menu to false
         changeNamePanel.SetActive(false);
         editName.gameObject.SetActive(false);
         explore.SetActive(false);
         quitButton.SetActive(false);
         feed.SetActive(false);
         call.SetActive(false);
+        playFetch.SetActive(false);
     }
 
     private void Update()
@@ -57,6 +57,12 @@ public class GameManager : MonoBehaviour
         happinessSlider.value = pet.Happiness;
         funSlider.value = pet.Fun;
         nameText.text = pet.Name;
+
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            changeNamePanel.SetActive(true);
+            editName.enabled = true;
+        }
     }
 
     /// <summary>
@@ -65,8 +71,6 @@ public class GameManager : MonoBehaviour
     /// <param name="b">Bool to check if is true then change name.</param>
     public void ChangeNickname(bool b)
     {
-        changeNamePanel.SetActive(!changeNamePanel.activeInHierarchy);
-        
         if(b)
         {
             pet.Name = nameInput.GetComponent<InputField>().text; //Connect Name to Input field object
@@ -79,37 +83,16 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void Call()
     {
-        whistleAudio.Play();
+        //whistleAudio.Play();
         //Move pet to original starting position
-    }
-
-    public void ButtonBehaviour(int i)
-    {
-        switch (i)
-        {
-            case (0):
-            default:
-                changeNamePanel.SetActive(!changeNamePanel.activeInHierarchy);
-                break;
-            case (1):
-                break;
-            case (2):
-                break;
-            case (3):
-                break;
-            case (4):
-                pet.SavePetInfo();
-                QuitGame();
-                break;
-        }
     }
 
     public void QuitGame()
     {
         Debug.Log("Quitting Game");
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
-#endif
+        #endif
         Application.Quit();
     }
 

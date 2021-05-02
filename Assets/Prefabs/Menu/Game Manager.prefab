@@ -51,17 +51,18 @@ MonoBehaviour:
   walkPoints:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   clickCount: 0
   nameText: {fileID: 0}
   editName: {fileID: 0}
   menuButton: {fileID: 0}
   changeNamePanel: {fileID: 0}
-  explore: {fileID: 0}
   nameInput: {fileID: 0}
+  explore: {fileID: 0}
   quitButton: {fileID: 0}
   feed: {fileID: 0}
+  call: {fileID: 0}
+  playFetch: {fileID: 0}
+  whistleAudio: {fileID: 0}
 --- !u!1 &7830577469494730826
 GameObject:
   m_ObjectHideFlags: 0

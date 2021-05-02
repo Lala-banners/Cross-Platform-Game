@@ -26,8 +26,8 @@ public class SelectPet : MonoBehaviour
         if (pets[choiceIndex])
             pets[choiceIndex].SetActive(true);
 
-        if(GameManager.instance != null)
-            GameManager.instance.pet = pets[choiceIndex].GetComponent<MasterPet>();
+        if(_GameManager.instance != null)
+            _GameManager.instance.pet = pets[choiceIndex].GetComponent<MasterPet>();
     }
 
 

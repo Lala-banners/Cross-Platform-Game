@@ -20,9 +20,9 @@ public class Walk : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance != null)
+        if (_GameManager.instance != null)
         {
-            if (GameManager.instance.clickCount == 0) //If not being clicked on, move around the floor
+            if (_GameManager.instance.clickCount == 0) //If not being clicked on, move around the floor
             {
                 //Walk animation
                 anim.SetInteger("Walk", 1);
@@ -41,18 +41,18 @@ public class Walk : MonoBehaviour
     {
         Debug.Log("Pet is moving to next point");
         //If no more points to travel to, return
-        if (GameManager.instance != null)
+        if (_GameManager.instance != null)
         {
-            if (Vector3.Distance(GameManager.instance.walkPoints[destination].transform.position, transform.position) < 0.5f)
+            if (Vector3.Distance(_GameManager.instance.walkPoints[destination].transform.position, transform.position) < 0.5f)
             {
                 destination++;
 
-                if (destination >= GameManager.instance.walkPoints.Length)
+                if (destination >= _GameManager.instance.walkPoints.Length)
                 {
                     destination = 0;
                 }
             }
-            nav.destination = Vector3.MoveTowards(transform.position, GameManager.instance.walkPoints[destination].transform.position, Time.deltaTime * nav.speed);
+            nav.destination = Vector3.MoveTowards(transform.position, _GameManager.instance.walkPoints[destination].transform.position, Time.deltaTime * nav.speed);
         }
     }
 }

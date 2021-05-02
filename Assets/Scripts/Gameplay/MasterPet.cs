@@ -95,15 +95,15 @@ public class MasterPet : MonoBehaviour
             {
                 if(hitInfo.transform.gameObject.CompareTag("Pet"))
                 {
-                    GameManager.instance.clickCount++;
+                    _GameManager.instance.clickCount++;
                     
-                    if(GameManager.instance.clickCount >= 3)
+                    if(_GameManager.instance.clickCount >= 3)
                     {
                         //Play cute noise
                         PetNoises(petNoise);
                         UpdateHappiness(5); //Increase happiness
                         hearts.Play(); //Play hearts particles
-                        GameManager.instance.clickCount = 0; //Reset click count
+                        _GameManager.instance.clickCount = 0; //Reset click count
                         //Make Pet jump when happy
                         rigi.AddForce(0f, jumpForce, 0f);
                         anim.SetTrigger("jump");
@@ -292,7 +292,7 @@ public class MasterPet : MonoBehaviour
     public void UpdateHappiness(int happyIndex)
     {
         happiness += happyIndex;
-        GameManager.instance.happinessSlider.value = happiness;
+        _GameManager.instance.happinessSlider.value = happiness;
         happiness++;
 
         if(happiness >= 100)
@@ -308,7 +308,7 @@ public class MasterPet : MonoBehaviour
     public void UpdateHunger(int hungerIndex)
     {
         hunger += hungerIndex;
-        GameManager.instance.hungerSlider.value = hunger;
+        _GameManager.instance.hungerSlider.value = hunger;
         hunger++;
 
         if(hunger >= 100)
