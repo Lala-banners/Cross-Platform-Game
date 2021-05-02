@@ -24,6 +24,15 @@ public class MasterPet : MonoBehaviour
     public Rigidbody rigi;
     private Vector3 screenBounds;
 
+    //Where you release your finger when up or down
+    private Vector2 fingerDownPos;
+    private Vector2 fingerUpPos;
+    private bool detectSwipeAfterRelease = false;
+
+    [SerializeField] private float minSwipeDistance;
+
+    //public static event Action<SwipeData> OnSwipe = delegate { };
+
     //This will be used to measure how much time has passed since game has been played
     //for updating the hunger, happiness and fun bars
     private bool serverTime;
@@ -103,8 +112,54 @@ public class MasterPet : MonoBehaviour
             }
         }
         #endregion
+
+        #region SWIPE CONTROLS
+        //Loop through all touches 
+       /* foreach (Touch touch in Input.touches)
+        {
+            //If started touch phase
+            if (touch.phase == TouchPhase.Began)
+            {
+                fingerUpPos = touch.position;
+                fingerDownPos = touch.position;
+            }
+
+            if(!detectSwipeAfterRelease && touch.phase == TouchPhase.Moved)
+            {
+                fingerDownPos = touch.position;
+                DetectSwipe();
+            }
+
+            if(touch.phase == TouchPhase.Ended)
+            {
+                fingerDownPos = touch.position;
+                DetectSwipe();
+            }
+        }*/
+        #endregion
     }
     #endregion
+
+    /*public void DetectSwipe()
+    {
+
+    }
+
+    public struct SwipeData
+    {
+        public Vector2 startPos;
+        public Vector2 endPos;
+        public SwipeDirection direction;
+    }
+
+    public enum SwipeDirection
+    { 
+        Up,
+        Down,
+        Left,
+        Right
+    }
+*/
 
     public void PetNoises(AudioSource _clip)
     {
