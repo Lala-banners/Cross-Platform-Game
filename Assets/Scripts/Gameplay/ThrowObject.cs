@@ -27,7 +27,6 @@ public class ThrowObject : MonoBehaviour
             //Mouse up = launch from camera //mainCam.ScreenToWorldPoint(mousePos) 
             GameObject clone = Instantiate(ballObject, transform.position, transform.rotation);
             clone.GetComponent<Rigidbody>().AddForce(transform.forward * force, ForceMode.Impulse);
-            Destroy(clone, 5);
         }
     }
 }
