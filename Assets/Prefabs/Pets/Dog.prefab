@@ -419,7 +419,7 @@ GameObject:
   - component: {fileID: 394686572}
   - component: {fileID: 8226737738486671264}
   - component: {fileID: 1231903859}
-  - component: {fileID: -859292042760277224}
+  - component: {fileID: 6700758869528471376}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Pet
@@ -515,8 +515,10 @@ MonoBehaviour:
   jumpForce: 300
   anim: {fileID: 394686574}
   hearts: {fileID: 4324169803438679598, guid: 99ccc99c322d8444ba872cde5661eefd, type: 3}
+  sleep: {fileID: 0}
   petNoise: {fileID: 0}
   rigi: {fileID: 394686573}
+  minSwipeDistance: 0
 --- !u!195 &1231903859
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -539,7 +541,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &-859292042760277224
+--- !u!114 &6700758869528471376
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -548,9 +550,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2815825198115524875}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecc86901a35bff142910f400b339e6a3, type: 3}
+  m_Script: {fileID: 11500000, guid: b27b4d0d5bf29cd44b2d28c0b95b7990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
 --- !u!1 &2815825198115524877
 GameObject:
   m_ObjectHideFlags: 0
