@@ -122,17 +122,17 @@ GameObject:
   - component: {fileID: 7441134056801786386}
   - component: {fileID: 1585635960}
   - component: {fileID: 1585635959}
-  - component: {fileID: 1585635958}
   - component: {fileID: -7772685182309144001}
   - component: {fileID: -2280476904170089518}
   - component: {fileID: 828738521}
+  - component: {fileID: 828738520}
   m_Layer: 0
   m_Name: Lion
   m_TagString: Pet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7441134056801786386
 Transform:
   m_ObjectHideFlags: 0
@@ -142,7 +142,7 @@ Transform:
   m_GameObject: {fileID: 7441134056801879602}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 1.16, y: 0.2, z: -2.31}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 7441134056801786398}
   - {fileID: 7441134056801786396}
@@ -191,19 +191,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &1585635958
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7441134056801879602}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.2234178, z: 1.5649911}
-  m_Center: {x: 0, y: 0.6254534, z: 0.17759648}
 --- !u!114 &-7772685182309144001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +247,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fetchPoint: {fileID: 7361087584251771320}
   startPoint: {fileID: 0}
+  dropBallRadius: 5
+  ballPos: {fileID: 0}
   state: 0
+--- !u!135 &828738520
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7441134056801879602}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5669508
+  m_Center: {x: 0, y: 0.6185645, z: 0.050000034}
 --- !u!1 &7441134056801879604
 GameObject:
   m_ObjectHideFlags: 0

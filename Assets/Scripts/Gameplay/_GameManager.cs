@@ -33,9 +33,9 @@ public class _GameManager : MonoBehaviour
     public GameObject explore;
     public GameObject quitButton;
     public GameObject feed;
-    public GameObject call;
+    //public GameObject call;
     public GameObject playFetch;
-    public AudioSource whistleAudio;
+    //public AudioSource whistleAudio;
     #endregion
 
     private void Awake()
@@ -56,7 +56,7 @@ public class _GameManager : MonoBehaviour
         explore.SetActive(false);
         quitButton.SetActive(false);
         feed.SetActive(false);
-        call.SetActive(false);
+        //call.SetActive(false);
         playFetch.SetActive(false);
     }
 
