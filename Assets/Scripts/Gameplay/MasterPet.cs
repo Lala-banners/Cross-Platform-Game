@@ -112,72 +112,13 @@ public class MasterPet : MonoBehaviour
             }
         }
         #endregion
-
-        #region SWIPE CONTROLS
-        //Loop through all touches 
-       /* foreach (Touch touch in Input.touches)
-        {
-            //If started touch phase
-            if (touch.phase == TouchPhase.Began)
-            {
-                fingerUpPos = touch.position;
-                fingerDownPos = touch.position;
-            }
-
-            if(!detectSwipeAfterRelease && touch.phase == TouchPhase.Moved)
-            {
-                fingerDownPos = touch.position;
-                DetectSwipe();
-            }
-
-            if(touch.phase == TouchPhase.Ended)
-            {
-                fingerDownPos = touch.position;
-                DetectSwipe();
-            }
-        }*/
-        #endregion
     }
     #endregion
-
-    /*public void DetectSwipe()
-    {
-
-    }
-
-    public struct SwipeData
-    {
-        public Vector2 startPos;
-        public Vector2 endPos;
-        public SwipeDirection direction;
-    }
-
-    public enum SwipeDirection
-    { 
-        Up,
-        Down,
-        Left,
-        Right
-    }
-*/
 
     public void PetNoises(AudioSource _clip)
     {
         _clip.Play();
     }
-
-    #region FEED PET
-    // OnCollisionStay is called once per frame for every collider/rigidbody that is touching rigidbody/collider
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Food"))
-        {
-            UpdateHunger(5);
-        }
-
-        //Debug.Log("Pet is being fed");
-    }
-    #endregion
 
     #region MANAGES PET STATS OVER TIME - HAPPINESS, HUNGER AND FUN
     //Use PlayerPrefs to save stats

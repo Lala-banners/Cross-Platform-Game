@@ -578,11 +578,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5033724728720513775}
   - component: {fileID: 945126290}
-  - component: {fileID: 945126289}
   - component: {fileID: 945126288}
   - component: {fileID: 3507839057622042097}
   - component: {fileID: 1040697837387645594}
-  - component: {fileID: 6023857038447085670}
+  - component: {fileID: 1270312145}
+  - component: {fileID: 6998973641989559991}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Pet
@@ -608,6 +608,7 @@ Transform:
   - {fileID: 5033724728720513767}
   - {fileID: 5033724728720513761}
   - {fileID: 7950908883617392922}
+  - {fileID: 3367318961894389853}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -630,22 +631,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!54 &945126289
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5033724728720475855}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &945126288
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -675,8 +660,10 @@ MonoBehaviour:
   jumpForce: 300
   anim: {fileID: 945126290}
   hearts: {fileID: 7950908883617392923}
+  sleep: {fileID: 0}
   petNoise: {fileID: 0}
-  rigi: {fileID: 945126289}
+  rigi: {fileID: 0}
+  minSwipeDistance: 0
 --- !u!195 &1040697837387645594
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -699,7 +686,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6023857038447085670
+--- !u!114 &1270312145
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -708,9 +695,59 @@ MonoBehaviour:
   m_GameObject: {fileID: 5033724728720475855}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecc86901a35bff142910f400b339e6a3, type: 3}
+  m_Script: {fileID: 11500000, guid: b27b4d0d5bf29cd44b2d28c0b95b7990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fetchPoint: {fileID: 3367318961894389853}
+  startPoint: {fileID: 0}
+  dropBallRadius: 10
+  state: 0
+--- !u!54 &6998973641989559991
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5033724728720475855}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!1 &7027218625195464266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3367318961894389853}
+  m_Layer: 0
+  m_Name: Fetch Point (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3367318961894389853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7027218625195464266}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5033724728720513775}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5932863621090365237
 PrefabInstance:
   m_ObjectHideFlags: 0

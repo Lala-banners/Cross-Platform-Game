@@ -9,7 +9,6 @@ public enum PetAI
 {
     walk,
     feed,
-    play,
 }
 
 public class StateMachine : MonoBehaviour
@@ -18,6 +17,10 @@ public class StateMachine : MonoBehaviour
     private NavMeshAgent nav;
     private Animator anim;
     private int destination = 0;
+    [SerializeField] private Transform fetchPoint;
+    public Transform startPoint;
+    [SerializeField] private float dropBallRadius;
+    [SerializeField] private BallPosition ballPos;
 
     //Pet States
     public PetAI state;
@@ -29,24 +32,33 @@ public class StateMachine : MonoBehaviour
         anim = GetComponent<Animator>();
         nav.autoBraking = false; //No breaking at all
 
-        NextState();
+        StartCoroutine(WalkState());
+    }
+
+    private void FixedUpdate()
+    {
+        //Attempting to drop the ball on the ground when pet reaches the end point
+        if (Vector3.Distance(nav.transform.position, startPoint.gameObject.transform.position) < dropBallRadius)
+        {
+            ballPos.RemovePet();
+            ballPos = null;
+        }
     }
 
     #region IEnumerator States
-    private IEnumerator walkState()
+    private IEnumerator WalkState()
     {
-        while(state == PetAI.walk)
+        while (state == PetAI.walk)
         {
             yield return null;
 
             if (_GameManager.instance != null)
             {
-                if (_GameManager.instance.clickCount == 0) //If not being clicked on, move around the floor
+                if (_GameManager.instance.clickCount == 0) //If not being clicked on, move around the room
                 {
                     //Walk animation
                     anim.SetInteger("Walk", 1);
-                    //Debug.Log("Pet is walking");
-                    WalkState();
+                    Walk();
                 }
                 else
                 {
@@ -56,34 +68,43 @@ public class StateMachine : MonoBehaviour
             }
         }
 
-        NextState();
+        state = PetAI.feed;
+        StartCoroutine(FeedState());
     }
 
-    private IEnumerator feedState()
+    private IEnumerator FeedState()
     {
-        while(state == PetAI.feed)
+        while (state == PetAI.feed)
         {
             //Feeding Pet Code Here
             //Make pet move to start position, then put in feed state
+            nav.destination = Vector3.MoveTowards(transform.position, _GameManager.instance.walkPoints[3].transform.position, Time.deltaTime * nav.speed);
+            _GameManager.instance.FeedPet();
             yield return null;
         }
-        NextState();
+        state = PetAI.walk;
+        StartCoroutine(WalkState());
     }
 
-    private IEnumerator playState()
+    private void OnCollisionEnter(Collision collision)
     {
-        while(state == PetAI.play)
+        //Pet picking up the ball
+        if (collision.gameObject.TryGetComponent<BallPosition>(out BallPosition obj))
         {
-            //Throw ball code here!
-            yield return null;
+            obj.gameObject.transform.SetParent(fetchPoint);
+            obj.SetPet();
+            ballPos = obj;
         }
-
-        NextState();
     }
     #endregion
 
+    private IEnumerator DropBall()
+    {
+        yield return new WaitForSeconds(1f);
+    }
+
     #region Functions
-    public void WalkState()
+    public void Walk()
     {
         Debug.Log("Pet is moving to next point");
         //If no more points to travel to, return

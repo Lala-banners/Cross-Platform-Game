@@ -51,6 +51,7 @@ MonoBehaviour:
   walkPoints:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   clickCount: 0
   nameText: {fileID: 0}
   editName: {fileID: 0}
