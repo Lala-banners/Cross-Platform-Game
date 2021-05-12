@@ -79,9 +79,9 @@ public class _GameManager : MonoBehaviour
         GameObject ball = ObjectPool.instance.GetPooledToyObject("Toy");
         if (ball != null)
         {
-            ball.GetComponent<Rigidbody>().AddForce(transform.forward * 100);
-            ball.transform.position = spawnPos.transform.position;
             ball.SetActive(true);
+            ball.transform.position = spawnPos.transform.position;
+            ball.GetComponent<Rigidbody>().AddForce(transform.forward * 5000);
         }
     }
 

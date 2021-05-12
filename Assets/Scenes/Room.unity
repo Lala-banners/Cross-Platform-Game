@@ -3642,7 +3642,7 @@ MonoBehaviour:
   itemsToPool:
   - objectToPool: {fileID: 539578791399311549, guid: 20a9d7c38027e3542845adc9e9a826ec, type: 3}
     amountToPool: 1
-    shouldExpand: 1
+    shouldExpand: 0
 --- !u!1001 &1270312141
 PrefabInstance:
   m_ObjectHideFlags: 0
